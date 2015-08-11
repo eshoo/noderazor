@@ -3,5 +3,18 @@
 	@html.block("body", function(model)
 	{
 		<h1>@model.body</h1>
-	})
+		<table class="table table-bordered">
+		@model.buffer.forEach(function(msg){
+			<tr>
+				<td> @msg.nick </td>
+				<td> 
+					<small class="timestamp">@msg.date</small>
+                        @msg.args[1]    
+                </td>
+             </tr>
+		})
+		</table>
+	
+  })
 })
+
